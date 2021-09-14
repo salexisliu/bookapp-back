@@ -5,7 +5,7 @@ puts "🌱 Seeding spices..."
 #Users
 u1 = User.create(username: "User1", password: "User2")
 u2 = User.create(username: "User2", password: "User2" )
-u3 = User.create(username: "User2", password: "User3" )
+u3 = User.create(username: "User3", password: "User3" )
 
 #Books
 # 5.times do
@@ -32,17 +32,17 @@ ub1 = UserBook.create(read: false, user_id: u1.id, book_id: b1.id)
 ub2 = UserBook.create(read: false, user_id: u1.id, book_id: b2.id)
 ub3 = UserBook.create(read: false, user_id: u1.id, book_id: b3.id)
 ub4 = UserBook.create(read: false, user_id: u1.id, book_id: b4.id)
-ub5 = UserBook.create(read: false, user_id: u2.id, book_id: b1.id)
-ub6 = UserBook.create(read: true, user_id: u2.id, book_id: b9.id)
-ub7 = UserBook.create(read: true, user_id: u3.id, book_id: b4.id)
-ub8 = UserBook.create(read: true, user_id: u3.id, book_id: b5.id)
-ub9 = UserBook.create(read: true, user_id: u3.id, book_id: b6.id)
-ub10 = UserBook.create(read: false, user_id: u1.id, book_id: b5.id)
-ub11 = UserBook.create(read: false, user_id: u1.id, book_id: b6.id)
-ub12 = UserBook.create(read: false, user_id: u1.id, book_id: b7.id)
-ub13 = UserBook.create(read: false, user_id: u1.id, book_id: b8.id)
-ub14 = UserBook.create(read: false, user_id: u1.id, book_id: b9.id)
-ub15 = UserBook.create(read: false, user_id: u1.id, book_id: b10.id)
+ub5 = UserBook.create(read: false, user_id: u1.id, book_id: b5.id)
+ub6 = UserBook.create(read: true, user_id: u1.id, book_id: b6.id)
+ub7 = UserBook.create(read: true, user_id: u1.id, book_id: b7.id)
+ub8 = UserBook.create(read: true, user_id: u1.id, book_id: b8.id)
+ub9 = UserBook.create(read: true, user_id: u1.id, book_id: b9.id)
+ub10 = UserBook.create(read: false, user_id: u2.id, book_id: b5.id)
+ub11 = UserBook.create(read: false, user_id: u2.id, book_id: b6.id)
+ub12 = UserBook.create(read: false, user_id: u3.id, book_id: b7.id)
+ub13 = UserBook.create(read: false, user_id: u3.id, book_id: b8.id)
+ub14 = UserBook.create(read: false, user_id: u3.id, book_id: b9.id)
+ub15 = UserBook.create(read: false, user_id: u3.id, book_id: b10.id)
 puts "✅ Done seeding!"
 
 #Review
@@ -50,3 +50,4 @@ r1 = Review.create(user_id: u1.id, book_id: b1.id, content: Faker::Quote.yoda)
 r2 = Review.create(user_id: u1.id, book_id: b1.id, content: Faker::Quote.yoda)
 r3 = Review.create(user_id: u2.id, book_id: b2.id, content: Faker::Quote.yoda)
 r4 = Review.create(user_id: u2.id, book_id: b3.id, content: Faker::Quote.yoda)
+r5 = Review.create(user_id: u3.id, book_id: b3.id, content: Faker::Quote.yoda)
