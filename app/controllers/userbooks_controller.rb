@@ -18,7 +18,7 @@ class UserBooksController < ApplicationController
       end
     end
 
-    delete "/userbooks/:id" do
+    delete "/userbook/:id" do
       @user_book = UserBook.find_by(id: params[:id])
       if @user_book.user_id == params["user_id"].to_i
         @user_book.destroy
@@ -27,6 +27,29 @@ class UserBooksController < ApplicationController
       else
         {message: "You're not authorized"}.to_json
     end
+  end
+
+  get "/userbook/:id" do 
+    book = UserBook.find(params[:id])
+    serialize(book)
+  end
+
+
+   private 
+
+    def userbook_params
+    allowed_params = %w(id, book_id)
+    params.select {|param,value| allowed_params.include?(param)}
+  end
+
+    def serialize(book)
+    book.to_json(
+      include: {
+         book: { 
+           methods: :reviews
+         }
+        }  
+    )
   end
 
 end
