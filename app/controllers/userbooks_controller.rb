@@ -1,6 +1,6 @@
 class UserBooksController < ApplicationController
 
-  get '/bookshelf' do
+  get '/userbooks' do
     @user = User.find_by(id: params["user_id"])
       if @user
         @user_books = @user.user_books
@@ -18,7 +18,7 @@ class UserBooksController < ApplicationController
       end
     end
 
-    delete "/bookshelf/:id" do
+    delete "/userbooks/:id" do
       @user_book = UserBook.find_by(id: params[:id])
       if @user_book.user_id == params["user_id"].to_i
         @user_book.destroy
