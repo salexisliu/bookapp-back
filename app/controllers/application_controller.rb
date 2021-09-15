@@ -2,10 +2,6 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  
-
-
-
 
   post '/signup' do
     if User.find_by(username: user_params['username'])
@@ -14,10 +10,10 @@ class ApplicationController < Sinatra::Base
       @user = User.create(user_params)
       @user.to_json
     end
-end
+  end
 
 post '/login' do
-  if User.find_by(username: user_params['username'])
+    if User.find_by(username: user_params['username'])
 
     @user = User.find_by(username: user_params['username'])
 
@@ -25,10 +21,11 @@ post '/login' do
       { user: @user, message: 'Logged in successfully...'}.to_json
     end
 
-  else
-    {message: 'User not found. Please sign up'}.to_json
+    else
+      {message: 'User not found. Please sign up'}.to_json
+    end
   end
-
+  
   private
   def user_params
     allowed_params = %w(username password)
