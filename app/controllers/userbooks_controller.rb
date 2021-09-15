@@ -7,7 +7,7 @@ class UserBooksController < ApplicationController
         @user_books.to_json(
           include: { 
             book: { 
-              only: [:title, :bookspine_img, :pages]
+             
             }
           }
         )
@@ -18,7 +18,7 @@ class UserBooksController < ApplicationController
       end
     end
 
-    delete "/userbook/:id" do
+    delete "/userbooks/:id" do
       @user_book = UserBook.find_by(id: params[:id])
       if @user_book.user_id == params["user_id"].to_i
         @user_book.destroy
@@ -29,7 +29,7 @@ class UserBooksController < ApplicationController
     end
   end
 
-  get "/userbook/:id" do 
+  get "/userbooks/:id" do 
     book = UserBook.find(params[:id])
     serialize(book)
   end
