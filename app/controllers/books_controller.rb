@@ -4,7 +4,7 @@ class BooksController < ApplicationController
     Book.all.to_json
   end
 
-   get "/book/:id" do 
+   get "/books/:id" do 
     book = Book.find(params[:id])
     serialize(book)
   end
