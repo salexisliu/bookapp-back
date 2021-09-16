@@ -17,14 +17,13 @@ class BooksController < ApplicationController
   end
 
     def serialize(book)
-    book.to_json(
-      methods: :bookreviews, 
+    book.to_json(include: { reviews: { include: :user } })
       # include: {
       #   dog_walks: { 
       #     methods: 
       #    }
       #   }
-    )
+    
   end
 
 end
