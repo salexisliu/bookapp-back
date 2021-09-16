@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
 
   get '/books' do
-    Book.all.to_json
+    book = Book.all
+    serialize(book)
   end
 
    get "/books/:id" do 
