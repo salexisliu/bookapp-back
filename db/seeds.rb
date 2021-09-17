@@ -17,7 +17,7 @@ u3 = User.create(username: "User3", password: "User3" )
 #   bookspine_img = "https://i.ibb.co/41QkH4c/bookorange.png"
   # book = Book.create(title: title, author: author, pages: pages, img_url: img_url, bookspine_img: bookspine_img)  
   
-b1 = Book.create(title: "Harry Potter and the Sorcerer's Stone", author:"J.K. Rowling", pages: rand(100...500), img_url: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg") 
+b1 = Book.create(title: "Harry Potter and the Sorcerer's Stone", author:"J.K. Rowling", pages: rand(100...500), img_url: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg", bookspine_img: "https://i.ibb.co/41QkH4c/bookorange.png") 
 b2 = Book.create(title: "Harry Potter and the Chamber of Secrets", author: "J.K. Rowling", pages: rand(100...500), img_url: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881._SY475_.jpg", bookspine_img: "https://i.ibb.co/41QkH4c/bookorange.png") 
 b3 = Book.create(title: 'The Midnight Library', author: 'Matt Haig', pages: rand(100...500), img_url: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1536852275l/41063454.jpg", bookspine_img: "https://i.ibb.co/41QkH4c/bookorange.png") 
 b4 = Book.create(title: 'Meet Cute', author: 'Helena Hunting', pages: rand(100...500), img_url: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1536852275l/41063454.jpg", bookspine_img: "https://i.ibb.co/41QkH4c/bookorange.png") 

@@ -45,7 +45,8 @@ class UserBooksController < ApplicationController
     
     @user = User.find_by(id: params["user_id"])
     if @user.user_books.find_by(book_id: params["book_id"])
-        {message: "already in bookshelf"}.to_json
+        # {message: "already in bookshelf"}.to_json
+       nil 
     else
       book = UserBook.create(userbook_params)
       serialize(book)
