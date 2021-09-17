@@ -1,5 +1,7 @@
+require 'pry'
 class UserBooksController < ApplicationController
 
+  
   get '/userbooks' do
     @user = User.find_by(id: params["user_id"])
       if @user
@@ -31,14 +33,30 @@ class UserBooksController < ApplicationController
 
   get "/userbooks/:id" do 
     book = UserBook.find(params[:id])
-    serialize(book)
+    book.to_json
   end
+
+
+  post '/userbooks' do
+    # book = UserBook.create(userbook_params)
+    # @user
+    # serialize(book)
+  
+    
+    @user = User.find_by(id: params["user_id"])
+    if @user.user_books.find_by(book_id: params["book_id"])
+        {message: "already in bookshelf"}.to_json
+    else
+      book = UserBook.create(userbook_params)
+      serialize(book)
+    end
+end
 
 
    private 
 
     def userbook_params
-    allowed_params = %w(id, book_id)
+    allowed_params = %w(id user_id book_id read)
     params.select {|param,value| allowed_params.include?(param)}
   end
 
